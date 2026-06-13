@@ -7,15 +7,12 @@ Processes: scrape country data, store in SQLite via Peewee,
 Outputs: printed analysis, population_by_region.png, countries.db
 '''
 
-
 import requests
 from peewee import SqliteDatabase, Model, CharField, FloatField, IntegerField
 import pandas as pd
 import matplotlib.pyplot as plt
 import time
 import json
-
-# ─── DATABASE SETUP ──────────────────────────────────────────────
 
 db = SqliteDatabase("countries.db")
 
@@ -30,8 +27,6 @@ class Country(Model):
 
     def __str__(self):
         return f'{self.name} | {self.area} | {self.region} | {self.population}'
-
-# ─── SCRAPING FUNCTIONS ──────────────────────────────────────────
 
 def fetch_countries():
     API_KEY = "rc_live_126246323bd54068892aa9cc5a062fc8"
