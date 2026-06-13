@@ -1,0 +1,44 @@
+The country_data.py collects data from https://api.restcountries.com/countries/v5.
+Their data includes information from more than 250 countries and more than 80
+fields of information. I specifically pulled all countries that included name, 
+population, area, and region which added to 254 countries. My code has several 
+steps. In the first function, fetch_countries, I use get requests to scrape all
+necessary date from the website. The function recognizes especially that these 
+collections must happen in batches of 100. Next in store_countries the Peewee 
+model is used to add new information that is put on the website but also to skip
+previously added information. The analyse function then loads the data into pandas
+to calculate the population density, and work through all necessary group by 
+functions. Finally, the visualize function produces a bar chart to show the 
+population of the regions. What I found was that Asia has the highest population 
+by a significant margin. On the other hand, Antarctica was so low that the results
+are not visually there on the visualization.
+
+Population by region:
+region
+Africa       1532166858
+Americas     1051057350
+Antarctic          1732
+Asia         4695328662
+Europe        743345860
+Oceania        48020398
+
+Average population density by region:
+region
+Africa        120.09
+Americas      207.04
+Antarctic       0.01
+Asia         1011.78
+Europe        680.64
+Oceania       109.20
+
+To be honest I did not use robots.txt to check what I could access. I think this was 
+reasonable since the home page actively encouraged this and I made an account to get
+the API key I used which also limited the amount of data it would provide. I did use
+time.sleep() however to make sure I was being fair to the website and its other users.
+I recognize that the data that I have is by nature incomplete since it does not 
+continuously with the changing data of the world. I also think that the main 
+limitation of my data is that I should have scraped more information to learn more 
+interesting things. Currently my data shows a lot of what is happening with population
+but does not give any indicators for why.
+
+
