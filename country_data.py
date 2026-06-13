@@ -29,8 +29,8 @@ class Country(Model):
         return f'{self.name} | {self.area} | {self.region} | {self.population}'
 
 def fetch_countries():
-    API_KEY = "rc_live_126246323bd54068892aa9cc5a062fc8"
-    headers = {"Authorization": f"Bearer {API_KEY}"}
+    api_key = "rc_live_126246323bd54068892aa9cc5a062fc8"
+    headers = {"Authorization": f"Bearer {api_key}"}
     url_base = "https://api.restcountries.com/countries/v5"
     all_countries = []
     offset = 0
